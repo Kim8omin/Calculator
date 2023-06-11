@@ -53,5 +53,32 @@ document.querySelector('#num-2').addEventListener('click',onClickNumber('2'));
 document.querySelector('#num-1').addEventListener('click',onClickNumber('1'));
 document.querySelector('#num-0').addEventListener('click',onClickNumber('0'));
 
-document.querySelector('#cal').addEventListener('click',()=>{});
-document.querySelector('#clear').addEventListener('click',()=>{});
+document.querySelector('#cal').addEventListener('click',()=>{
+    if (numTwo) {
+        switch(operator) {
+            case '+':
+                $result.value=parseInt(numOne)+parseInt(numTwo);
+                break;
+            case '-':
+                $result.value=numOne-numTwo;
+                break;
+            case '/':
+                $result.value=numOne/numTwo;
+                break;
+            case '*':
+                $result.value=numOne*numTwo;
+                break;
+            default:
+                break;
+        }
+    }else {
+        alert('please enter the number first!');
+    }
+});
+document.querySelector('#clear').addEventListener('click',()=>{
+    numOne='';
+    numTwo='';
+    operator='';
+    $operator.value='';
+    $result.value='';
+});
